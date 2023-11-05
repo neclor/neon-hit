@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://blu6whe1vf61o"]
+
+[ext_resource type="PackedScene" uid="uid://b3rctpaj6d7qf" path="res://ui/objects/buy_button/buy_button.tscn" id="1_i58d4"]
+
+[node name="AdButton" instance=ExtResource("1_i58d4")]
+
+[node name="UnlockLabel" parent="MarginContainer/RootHBoxContainer" index="0"]
+text = "Watch
+ADS"
+
+[node name="PriceLabel" parent="MarginContainer/RootHBoxContainer/PriceVBoxContainer" index="1"]
+text = "50"

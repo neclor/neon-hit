@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3rctpaj6d7qf"]
+
+[ext_resource type="StyleBox" uid="uid://bjx71qgb0ss32" path="res://styles/button.stylebox" id="1_75r41"]
+[ext_resource type="Script" path="res://ui/objects/buy_button/buy_button.gd" id="2_e67qd"]
+[ext_resource type="Texture2D" uid="uid://d2ljx8om5qvj7" path="res://assets/sprite/coin0.png" id="3_humes"]
+
+[node name="BuyButton" type="PanelContainer"]
+custom_minimum_size = Vector2(256, 128)
+offset_right = 256.0
+offset_bottom = 128.0
+theme_override_styles/panel = ExtResource("1_75r41")
+script = ExtResource("2_e67qd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="RootHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="UnlockLabel" type="Label" parent="MarginContainer/RootHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "Unlock
+Random"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceVBoxContainer" type="VBoxContainer" parent="MarginContainer/RootHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CoinTexture" type="TextureRect" parent="MarginContainer/RootHBoxContainer/PriceVBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_humes")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PriceLabel" type="Label" parent="MarginContainer/RootHBoxContainer/PriceVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwcc6gelgq2a3"]
+
+[ext_resource type="Script" path="res://game/objects/targets/target/target.gd" id="1_of5s2"]
+[ext_resource type="Texture2D" uid="uid://bc6mwka41bvum" path="res://assets/sprite/target0.png" id="2_c86cj"]
+[ext_resource type="Texture2D" uid="uid://cx1f11fwaaf1u" path="res://assets/sprite/target_piece.png" id="3_t4vj5"]
+[ext_resource type="Texture2D" uid="uid://bufp5qjf1p48d" path="res://assets/sprite/projectile0.png" id="4_jjuxx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8lyb1"]
+radius = 128.0
+
+[node name="Target" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_of5s2")
+
+[node name="TargetSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_c86cj")
+
+[node name="TargetCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8lyb1")
+
+[node name="ObjectsContainer" type="Node2D" parent="."]
+show_behind_parent = true
+
+[node name="TargetParticlesContainer" type="Node2D" parent="."]
+
+[node name="TargetCPUParticles" type="CPUParticles2D" parent="TargetParticlesContainer"]
+emitting = false
+amount = 5
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("3_t4vj5")
+emission_shape = 2
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 128.0
+initial_velocity_max = 512.0
+angular_velocity_min = -128.0
+angular_velocity_max = 128.0
+
+[node name="ProjectileCPUParticles" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("4_jjuxx")
+emission_shape = 2
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 128.0
+initial_velocity_max = 512.0
+angular_velocity_min = -128.0
+angular_velocity_max = 128.0

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4lu3y3clbdlw"]
+
+[ext_resource type="Texture2D" uid="uid://d3ya8p27yxlxs" path="res://assets/sprite/projectile_count.png" id="1_ixopv"]
+[ext_resource type="Script" path="res://ui/objects/projectiles_counter/projectiles_counter.gd" id="1_ufitp"]
+
+[node name="ProjectilesCounter" type="VBoxContainer"]
+alignment = 2
+script = ExtResource("1_ufitp")
+
+[node name="Projectile1" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ixopv")
+
+[node name="Projectile2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ixopv")
+
+[node name="Projectile3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ixopv")
+
+[node name="Projectile4" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ixopv")
+
+[node name="Projectile5" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ixopv")
+
+[node name="Projectile6" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ixopv")
+
+[node name="Projectile7" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ixopv")
+
+[node name="Projectile8" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ixopv")

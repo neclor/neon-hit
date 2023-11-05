@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp7qapsxgent2"]
+
+[ext_resource type="Script" path="res://ui/objects/shop_item/shop_item.gd" id="1_b33lf"]
+[ext_resource type="Texture2D" uid="uid://cxod7n46bb7fg" path="res://assets/sprite/lock.png" id="1_s4p8m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lh57"]
+
+[node name="ShopItem" type="PanelContainer"]
+offset_right = 144.0
+offset_bottom = 144.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3lh57")
+script = ExtResource("1_b33lf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ProjectileTexture" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(112, 112)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_s4p8m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

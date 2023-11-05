@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb8p574m0by1r"]
+
+[ext_resource type="Texture2D" uid="uid://dio2presm31y" path="res://assets/sprite/level_count.png" id="1_0f1kx"]
+[ext_resource type="Script" path="res://ui/objects/levels_counter/levels_counter.gd" id="1_3bxd7"]
+[ext_resource type="Texture2D" uid="uid://qr830smk2d5s" path="res://assets/sprite/level_count_boss.png" id="2_45tj2"]
+
+[node name="LevelsCounter" type="HBoxContainer"]
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("1_3bxd7")
+
+[node name="LevelTexture1" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_0f1kx")
+stretch_mode = 5
+
+[node name="LevelTexture2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_0f1kx")
+stretch_mode = 5
+
+[node name="LevelTexture3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_0f1kx")
+stretch_mode = 5
+
+[node name="LevelTexture4" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_0f1kx")
+stretch_mode = 5
+
+[node name="LevelTexture5" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_45tj2")
+stretch_mode = 5

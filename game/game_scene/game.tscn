@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3m8b1hou1cxq"]
+
+[ext_resource type="Script" path="res://game/game_scene/game.gd" id="1_1taa4"]
+[ext_resource type="PackedScene" uid="uid://c02womao0cgfe" path="res://game/projectile_schooter/projectile_shooter.tscn" id="1_yg7xa"]
+
+[sub_resource type="Environment" id="Environment_w7vds"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+fog_light_energy = 3.1
+fog_sun_scatter = 0.26
+fog_density = 0.023
+adjustment_enabled = true
+adjustment_contrast = 1.1
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_1taa4")
+
+[node name="GameCamera" type="Camera2D" parent="."]
+
+[node name="ProjectileShooter" parent="." instance=ExtResource("1_yg7xa")]
+position = Vector2(-1, 320)
+
+[node name="TargetMarker" type="Marker2D" parent="."]
+position = Vector2(0, -64)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w7vds")

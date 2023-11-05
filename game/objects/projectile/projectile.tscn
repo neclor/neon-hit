@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3gh33ruvepe4"]
+
+[ext_resource type="Script" path="res://game/objects/projectile/projectile.gd" id="1_nji5b"]
+[ext_resource type="Texture2D" uid="uid://bufp5qjf1p48d" path="res://assets/sprite/projectile0.png" id="2_bgqcd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epidf"]
+radius = 13.0
+height = 128.0
+
+[node name="Projectile" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 14
+script = ExtResource("1_nji5b")
+
+[node name="ProjectileSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_bgqcd")
+
+[node name="ProjectileCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_epidf")

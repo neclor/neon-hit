@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://bglt6ldubgw0h"]
+
+[ext_resource type="Script" path="res://ui/shop_scene/shop.gd" id="1_hwgjg"]
+[ext_resource type="Texture2D" uid="uid://bufp5qjf1p48d" path="res://assets/sprite/projectile0.png" id="2_hjpos"]
+[ext_resource type="PackedScene" uid="uid://dp7qapsxgent2" path="res://ui/objects/shop_item/shop_item.tscn" id="2_mgt4n"]
+[ext_resource type="PackedScene" uid="uid://b3rctpaj6d7qf" path="res://ui/objects/buy_button/buy_button.tscn" id="4_r3hqf"]
+[ext_resource type="PackedScene" uid="uid://blu6whe1vf61o" path="res://ui/objects/ad_button/ad_button.tscn" id="4_rlug1"]
+
+[sub_resource type="Environment" id="Environment_7qe4j"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+fog_light_energy = 3.1
+fog_sun_scatter = 0.26
+fog_density = 0.023
+adjustment_enabled = true
+adjustment_contrast = 1.1
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hwgjg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 128
+
+[node name="RootVBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="ShopLabel" type="Label" parent="MarginContainer/RootVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Shop
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProjectileTexture" type="TextureRect" parent="MarginContainer/RootVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_hjpos")
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/RootVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="ShopItem" parent="MarginContainer/RootVBoxContainer/GridContainer" instance=ExtResource("2_mgt4n")]
+layout_mode = 2
+
+[node name="ShopItem2" parent="MarginContainer/RootVBoxContainer/GridContainer" instance=ExtResource("2_mgt4n")]
+layout_mode = 2
+
+[node name="ShopItem3" parent="MarginContainer/RootVBoxContainer/GridContainer" instance=ExtResource("2_mgt4n")]
+layout_mode = 2
+
+[node name="ShopItem4" parent="MarginContainer/RootVBoxContainer/GridContainer" instance=ExtResource("2_mgt4n")]
+layout_mode = 2
+
+[node name="ShopItem5" parent="MarginContainer/RootVBoxContainer/GridContainer" instance=ExtResource("2_mgt4n")]
+layout_mode = 2
+
+[node name="ShopItem6" parent="MarginContainer/RootVBoxContainer/GridContainer" instance=ExtResource("2_mgt4n")]
+layout_mode = 2
+
+[node name="ShopItem7" parent="MarginContainer/RootVBoxContainer/GridContainer" instance=ExtResource("2_mgt4n")]
+layout_mode = 2
+
+[node name="ShopItem8" parent="MarginContainer/RootVBoxContainer/GridContainer" instance=ExtResource("2_mgt4n")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/RootVBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AdButton" parent="MarginContainer/RootVBoxContainer/HBoxContainer" instance=ExtResource("4_rlug1")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="BuyButton" parent="MarginContainer/RootVBoxContainer/HBoxContainer" instance=ExtResource("4_r3hqf")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7qe4j")
+
+[connection signal="pressed" from="MarginContainer/RootVBoxContainer/HBoxContainer/AdButton" to="." method="_on_ad_button_pressed"]
+[connection signal="pressed" from="MarginContainer/RootVBoxContainer/HBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://boclm7k50off3"]
+
+[ext_resource type="PackedScene" uid="uid://bwcc6gelgq2a3" path="res://game/objects/targets/target/target.tscn" id="1_pdh0n"]
+[ext_resource type="Script" path="res://game/objects/targets/target_accelerate/target_accelerate.gd" id="2_smk8c"]
+[ext_resource type="Texture2D" uid="uid://bt76kigt0kdyf" path="res://assets/sprite/target1.png" id="3_kn7qs"]
+[ext_resource type="Texture2D" uid="uid://bvg142bpagb5u" path="res://assets/sprite/target1_piece0.png" id="4_pnuhu"]
+[ext_resource type="Texture2D" uid="uid://6yh7p344fia7" path="res://assets/sprite/target1_piece1.png" id="5_aj31e"]
+[ext_resource type="Texture2D" uid="uid://cu8483oytsxpr" path="res://assets/sprite/target1_piece2.png" id="6_lonxc"]
+[ext_resource type="Texture2D" uid="uid://cv1hqekdfkbcq" path="res://assets/sprite/target1_piece3.png" id="7_d4w2c"]
+
+[node name="TargetAccelerate" instance=ExtResource("1_pdh0n")]
+script = ExtResource("2_smk8c")
+
+[node name="TargetSprite" parent="." index="0"]
+texture = ExtResource("3_kn7qs")
+
+[node name="TargetCPUParticles" parent="TargetParticlesContainer" index="0"]
+amount = 1
+texture = ExtResource("4_pnuhu")
+
+[node name="TargetCPUParticles2" type="CPUParticles2D" parent="TargetParticlesContainer" index="1"]
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("5_aj31e")
+emission_shape = 2
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 128.0
+initial_velocity_max = 512.0
+angular_velocity_min = -128.0
+angular_velocity_max = 128.0
+
+[node name="TargetCPUParticles3" type="CPUParticles2D" parent="TargetParticlesContainer" index="2"]
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("6_lonxc")
+emission_shape = 2
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 128.0
+initial_velocity_max = 512.0
+angular_velocity_min = -128.0
+angular_velocity_max = 128.0
+
+[node name="TargetCPUParticles4" type="CPUParticles2D" parent="TargetParticlesContainer" index="3"]
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("7_d4w2c")
+emission_shape = 2
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 128.0
+initial_velocity_max = 512.0
+angular_velocity_min = -128.0
+angular_velocity_max = 128.0

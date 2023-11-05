@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://yhbxeus3jxuo"]
+
+[ext_resource type="PackedScene" uid="uid://bwcc6gelgq2a3" path="res://game/objects/targets/target/target.tscn" id="1_l065d"]
+[ext_resource type="Texture2D" uid="uid://dr6mv5quia5y6" path="res://assets/sprite/target2.png" id="2_724pq"]
+[ext_resource type="Script" path="res://game/objects/targets/target_boss/target_boss.gd" id="2_nj73b"]
+[ext_resource type="Texture2D" uid="uid://dy08c3cxdu5qj" path="res://assets/sprite/target2_piece0.png" id="3_6ek46"]
+[ext_resource type="Texture2D" uid="uid://cag8injfwj2r8" path="res://assets/sprite/target2_piece1.png" id="4_6s38m"]
+[ext_resource type="Texture2D" uid="uid://bfy8ubsqyldo4" path="res://assets/sprite/target2_piece2.png" id="5_cw04r"]
+
+[sub_resource type="Animation" id="Animation_dtdg2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cl4nk"]
+resource_name = "boss_rotation"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 0.25, 1),
+"update": 0,
+"values": [0.0, 2.0944, 2.61799, -6.28319, -18.8496]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s7lnm"]
+_data = {
+"RESET": SubResource("Animation_dtdg2"),
+"boss_rotation": SubResource("Animation_cl4nk")
+}
+
+[node name="TargetBoss" instance=ExtResource("1_l065d")]
+script = ExtResource("2_nj73b")
+
+[node name="TargetSprite" parent="." index="0"]
+texture = ExtResource("2_724pq")
+
+[node name="TargetCPUParticles" parent="TargetParticlesContainer" index="0"]
+amount = 1
+texture = ExtResource("3_6ek46")
+
+[node name="TargetCPUParticles2" type="CPUParticles2D" parent="TargetParticlesContainer" index="1"]
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("4_6s38m")
+emission_shape = 2
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 128.0
+initial_velocity_max = 512.0
+angular_velocity_min = -128.0
+angular_velocity_max = 128.0
+
+[node name="TargetCPUParticles3" type="CPUParticles2D" parent="TargetParticlesContainer" index="2"]
+emitting = false
+amount = 2
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("5_cw04r")
+emission_shape = 2
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 128.0
+initial_velocity_max = 512.0
+angular_velocity_min = -128.0
+angular_velocity_max = 128.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+autoplay = "boss_rotation"
+libraries = {
+"": SubResource("AnimationLibrary_s7lnm")
+}
+
+[node name="Camera2D" type="Camera2D" parent="." index="6"]

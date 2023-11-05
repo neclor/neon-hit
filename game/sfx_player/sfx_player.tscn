@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ujf02hg8h8ch"]
+
+[ext_resource type="Script" path="res://game/sfx_player/sfx_player.gd" id="1_hppfr"]
+
+[node name="SFXPlayer" type="AudioStreamPlayer"]
+volume_db = -25.0
+script = ExtResource("1_hppfr")

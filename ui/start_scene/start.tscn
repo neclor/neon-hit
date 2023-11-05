@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://tptefn82bx8h"]
+
+[ext_resource type="Script" path="res://ui/start_scene/start.gd" id="1_sloyj"]
+[ext_resource type="StyleBox" uid="uid://bjx71qgb0ss32" path="res://styles/button.stylebox" id="2_2o01i"]
+
+[sub_resource type="Environment" id="Environment_fh7vl"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+fog_light_energy = 3.1
+fog_sun_scatter = 0.26
+fog_density = 0.023
+adjustment_enabled = true
+adjustment_contrast = 1.1
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sloyj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 256
+
+[node name="RootVBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GameNameLable" type="Label" parent="MarginContainer/RootVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 128
+text = "NEON HIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="MarginContainer/RootVBoxContainer"]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+focus_mode = 0
+theme_override_styles/normal = ExtResource("2_2o01i")
+theme_override_styles/hover = ExtResource("2_2o01i")
+theme_override_styles/pressed = ExtResource("2_2o01i")
+text = "PLAY"
+
+[node name="ShopButton" type="Button" parent="MarginContainer/RootVBoxContainer"]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+focus_mode = 0
+theme_override_styles/normal = ExtResource("2_2o01i")
+theme_override_styles/hover = ExtResource("2_2o01i")
+theme_override_styles/pressed = ExtResource("2_2o01i")
+text = "Shop"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fh7vl")
+
+[connection signal="pressed" from="MarginContainer/RootVBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/RootVBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]

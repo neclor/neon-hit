@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbreyxjvw638u"]
+
+[ext_resource type="Script" path="res://game/objects/coin/coin.gd" id="1_c8h62"]
+[ext_resource type="Texture2D" uid="uid://cspy5xkyek2c0" path="res://assets/sprite/coin1.png" id="2_qm67u"]
+[ext_resource type="Texture2D" uid="uid://cuwy5di8ofeqn" path="res://assets/sprite/coin_piece.png" id="3_kmn87"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ca7ma"]
+radius = 32.0
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_c8h62")
+
+[node name="CoinSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_qm67u")
+
+[node name="CoinArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CoinCollisionShape" type="CollisionShape2D" parent="CoinArea"]
+shape = SubResource("CircleShape2D_ca7ma")
+
+[node name="CoinCPUParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 3
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("3_kmn87")
+emission_shape = 2
+emission_sphere_radius = 16.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 128.0
+initial_velocity_max = 512.0
+angular_velocity_min = -128.0
+angular_velocity_max = 128.0
+
+[connection signal="body_entered" from="CoinArea" to="." method="_on_coin_area_body_entered"]

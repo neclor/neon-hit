@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmih68mdx8w7f"]
+
+[ext_resource type="Texture2D" uid="uid://cptbsvxa5ga0v" path="res://assets/back.png" id="1_12bkq"]
+[ext_resource type="Script" path="res://ui/game_over_hud/game_over_hud.gd" id="1_kwjxp"]
+[ext_resource type="StyleBox" uid="uid://bjx71qgb0ss32" path="res://styles/button.stylebox" id="2_tpcs3"]
+
+[node name="GameOverHUD" type="CanvasLayer"]
+script = ExtResource("1_kwjxp")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_12bkq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 256
+
+[node name="RootNode" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/RootNode"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="GameOverPanelContainer" type="PanelContainer" parent="MarginContainer/RootNode/HBoxContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("2_tpcs3")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/RootNode/HBoxContainer/GameOverPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="GameOverVBoxContainer" type="VBoxContainer" parent="MarginContainer/RootNode/HBoxContainer/GameOverPanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/RootNode/HBoxContainer/GameOverPanelContainer/MarginContainer/GameOverVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="StageLabel" type="Label" parent="MarginContainer/RootNode/HBoxContainer/GameOverPanelContainer/MarginContainer/GameOverVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "stage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="MarginContainer/RootNode"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -267.0
+offset_right = 198.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+text = "RESTART"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/RootNode/RestartButton" to="." method="_on_restart_button_pressed"]

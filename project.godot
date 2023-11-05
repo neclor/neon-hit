@@ -1,0 +1,57 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="NeonHit"
+run/main_scene="res://ui/start_scene/start.tscn"
+config/features=PackedStringArray("4.1", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0.101961, 1)
+boot_splash/image="res://assets/sprite/target1.png"
+config/icon="res://assets/sprite/icon.png"
+
+[autoload]
+
+AdsBanner="*res://ads/ads_banner.gd"
+Events="*res://core/events.gd"
+SfxPlayer="*res://game/sfx_player/sfx_player.tscn"
+Global="*res://core/global.gd"
+Hud="*res://ui/hud/hud.tscn"
+AdsRewarded="*res://ads/ads_rewarded.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/admob/plugin.cfg")
+
+[gui]
+
+theme/custom="res://styles/main.theme"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_2="projectile"
+2d_physics/layer_3="target"
+2d_physics/layer_4="coin"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
