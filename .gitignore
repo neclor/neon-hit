@@ -24,4 +24,4 @@ mono_crash.*.json
 *~
 
 keystore/
-android/*
+android/
