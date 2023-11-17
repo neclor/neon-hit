@@ -107,6 +107,7 @@ alignment = 1
 
 [node name="ErrorField" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_4d7gw")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
