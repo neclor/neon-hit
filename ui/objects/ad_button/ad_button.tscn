@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://blu6whe1vf61o"]
+[gd_scene load_steps=4 format=3 uid="uid://blu6whe1vf61o"]
 
 [ext_resource type="PackedScene" uid="uid://b3rctpaj6d7qf" path="res://ui/objects/buy_button/buy_button.tscn" id="1_i58d4"]
+[ext_resource type="Script" path="res://ui/objects/ad_button/ad_button.gd" id="2_6flee"]
+[ext_resource type="Texture2D" uid="uid://dareirth6lj1d" path="res://assets/sprite/loading.png" id="2_gjty4"]
 
 [node name="AdButton" instance=ExtResource("1_i58d4")]
+script = ExtResource("2_6flee")
 
 [node name="UnlockLabel" parent="MarginContainer/RootHBoxContainer" index="0"]
 text = "Watch
@@ -10,3 +13,29 @@ ADS"
 
 [node name="PriceLabel" parent="MarginContainer/RootHBoxContainer/PriceVBoxContainer" index="1"]
 text = "50"
+
+[node name="LoadingContainer" type="Control" parent="." index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadingContainer" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ColorRect" type="ColorRect" parent="LoadingContainer/MarginContainer" index="0"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.643137)
+
+[node name="LoadingTexture" type="TextureRect" parent="LoadingContainer/MarginContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("2_gjty4")
+expand_mode = 1
+stretch_mode = 5

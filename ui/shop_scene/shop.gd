@@ -3,8 +3,11 @@ extends Control
 @onready var grid_container := $MarginContainer/RootVBoxContainer/GridContainer
 @onready var buy_button = $MarginContainer/RootVBoxContainer/HBoxContainer/BuyButton
 @onready var projectile_texture = $MarginContainer/RootVBoxContainer/ProjectileTexture
+@onready var error_field = %ErrorField
+
 
 func _ready():
+	Events.rewarded_ad_was_watched.connect(rewarded_ad_was_watched)
 	Events.active_projectile_changed.connect(update_projectile_texture)
 	update_projectile_texture(Global.active_projectile_index)
 
@@ -18,6 +21,7 @@ func _ready():
 
 func _on_buy_button_pressed():
 	if Global.coins < Global.UNLOCK_COST:
+		change_error_notification("Not enough coins!")
 		return
 
 	var locked_projectiles := []
@@ -40,6 +44,7 @@ func _on_buy_button_pressed():
 
 func _on_ad_button_pressed():
 	AdsRewarded.show_ad()
+	change_error_notification("Oops, something went wrong...")
 
 func update_projectile_texture(_projectile_index: int):
 	projectile_texture.texture = Global.PROJECTILE_TEXTURES[_projectile_index]
@@ -48,5 +53,12 @@ func check_buy_button_visible():
 	if Global.unlocked_projectiles == 0b11111111:
 		buy_button.visible = false
 
+func rewarded_ad_was_watched():
+	hide_error()
 
+func change_error_notification(text: String):
+	error_field.change_notification(text)
+	error_field.visible = true
 
+func hide_error():
+	error_field.visible = false

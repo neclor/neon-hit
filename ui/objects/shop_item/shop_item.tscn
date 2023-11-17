@@ -6,8 +6,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lh57"]
 
 [node name="ShopItem" type="PanelContainer"]
-offset_right = 144.0
-offset_bottom = 144.0
+offset_right = 128.0
+offset_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3lh57")

@@ -101,8 +101,7 @@ func animation():
 	projectile_particles.rotation = -rotation
 	projectile_particles.emitting = true
 
-	for i in range(target_particles_container.get_child_count()):
-		var target_particle = target_particles_container.get_child(i)
+	for target_particle in target_particles_container.get_children():
 
 		tween.parallel().tween_property(target_particle, "modulate", Color("ffffff00"), ANIMATION_TIME)
 		target_particle.rotation = -rotation

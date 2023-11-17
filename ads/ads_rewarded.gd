@@ -5,7 +5,7 @@ var on_user_earned_reward_listener := OnUserEarnedRewardListener.new()
 var rewarded_ad_load_callback := RewardedAdLoadCallback.new()
 var full_screen_content_callback := FullScreenContentCallback.new()
 
-var unit_id = "ca-app-pub-3940256099942544/1712485313" #test ad unit ID
+var unit_id = "ca-app-pub-9485734485882503/3219588539"
 
 func _ready():
 	on_user_earned_reward_listener.on_user_earned_reward = on_user_earned_reward
@@ -32,6 +32,7 @@ func destroy_ad():
 func on_user_earned_reward(rewarded_item : RewardedItem):
 	Global.add_coins(50)
 	Global.save_game()
+	Events.rewarded_ad_was_watched.emit()
 
 	load_ad()
 
@@ -42,6 +43,8 @@ func on_rewarded_ad_loaded(rewarded_ad : RewardedAd):
 	rewarded_ad.full_screen_content_callback = full_screen_content_callback
 
 	self.rewarded_ad = rewarded_ad
+	
+	Events.rewarded_ad_loaded.emit()
 
 func load_ad():
 	destroy_ad()

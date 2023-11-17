@@ -2,7 +2,7 @@ extends Node
 
 var ad_view : AdView
 
-var unit_id = "ca-app-pub-3940256099942544/6300978111" #test ad unit ID
+var unit_id = "ca-app-pub-9485734485882503/6879508233"
 
 func _ready():
 	MobileAds.initialize()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmih68mdx8w7f"]
 
-[ext_resource type="Texture2D" uid="uid://cptbsvxa5ga0v" path="res://assets/back.png" id="1_12bkq"]
+[ext_resource type="Texture2D" uid="uid://dbxfskt6iv5g3" path="res://assets/back.png" id="1_12bkq"]
 [ext_resource type="Script" path="res://ui/game_over_hud/game_over_hud.gd" id="1_kwjxp"]
 [ext_resource type="StyleBox" uid="uid://bjx71qgb0ss32" path="res://styles/button.stylebox" id="2_tpcs3"]
 

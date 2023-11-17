@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bglt6ldubgw0h"]
+[gd_scene load_steps=8 format=3 uid="uid://bglt6ldubgw0h"]
 
 [ext_resource type="Script" path="res://ui/shop_scene/shop.gd" id="1_hwgjg"]
 [ext_resource type="Texture2D" uid="uid://bufp5qjf1p48d" path="res://assets/sprite/projectile0.png" id="2_hjpos"]
 [ext_resource type="PackedScene" uid="uid://dp7qapsxgent2" path="res://ui/objects/shop_item/shop_item.tscn" id="2_mgt4n"]
 [ext_resource type="PackedScene" uid="uid://b3rctpaj6d7qf" path="res://ui/objects/buy_button/buy_button.tscn" id="4_r3hqf"]
 [ext_resource type="PackedScene" uid="uid://blu6whe1vf61o" path="res://ui/objects/ad_button/ad_button.tscn" id="4_rlug1"]
+[ext_resource type="PackedScene" uid="uid://e8rh16qm4e2i" path="res://ui/objects/error_field/error_field.tscn" id="6_4d7gw"]
 
 [sub_resource type="Environment" id="Environment_7qe4j"]
 background_mode = 3
@@ -36,7 +37,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 128
 theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 128
+theme_override_constants/margin_bottom = 160
 
 [node name="RootVBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -96,8 +97,17 @@ size_flags_vertical = 4
 
 [node name="BuyButton" parent="MarginContainer/RootVBoxContainer/HBoxContainer" instance=ExtResource("4_r3hqf")]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="ErrorField" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_4d7gw")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7qe4j")

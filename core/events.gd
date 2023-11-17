@@ -9,3 +9,6 @@ signal projectiles_counter_changed(projectiles: int)
 signal stage_changed(stage: Stage)
 signal coins_changed(coins: int)
 signal active_projectile_changed(projectile_index: int)
+
+signal rewarded_ad_loaded
+signal rewarded_ad_was_watched

@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://e8rh16qm4e2i"]
+
+[ext_resource type="StyleBox" uid="uid://bjx71qgb0ss32" path="res://styles/button.stylebox" id="1_n0525"]
+[ext_resource type="Script" path="res://ui/objects/error_field/error_field.gd" id="2_gt564"]
+
+[sub_resource type="Animation" id="Animation_j5g85"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wf3lh"]
+resource_name = "appearance"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a6huq"]
+_data = {
+"RESET": SubResource("Animation_j5g85"),
+"appearance": SubResource("Animation_wf3lh")
+}
+
+[node name="ErrorField" type="PanelContainer"]
+custom_minimum_size = Vector2(512, 256)
+offset_right = 512.0
+offset_bottom = 256.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(256, 128)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = ExtResource("1_n0525")
+script = ExtResource("2_gt564")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.835294)
+
+[node name="ErrorVBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ErrorLabel" type="Label" parent="MarginContainer/ErrorVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Oops, something went wrong..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OkButton" type="Button" parent="MarginContainer/ErrorVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 32
+text = "Ok"
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a6huq")
+}
+
+[connection signal="pressed" from="MarginContainer/ErrorVBoxContainer/OkButton" to="." method="_on_ok_button_pressed"]

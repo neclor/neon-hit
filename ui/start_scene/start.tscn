@@ -68,7 +68,7 @@ focus_mode = 0
 theme_override_styles/normal = ExtResource("2_2o01i")
 theme_override_styles/hover = ExtResource("2_2o01i")
 theme_override_styles/pressed = ExtResource("2_2o01i")
-text = "Shop"
+text = "SHOP"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fh7vl")
