@@ -88,9 +88,9 @@ angular_velocity_min = -128.0
 angular_velocity_max = 128.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
-autoplay = "boss_rotation"
 libraries = {
 "": SubResource("AnimationLibrary_s7lnm")
 }
+autoplay = "boss_rotation"
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
